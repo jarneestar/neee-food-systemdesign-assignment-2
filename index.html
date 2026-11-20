@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf4" />
+    <meta
+      name="description"
+      content="Order something delicious with neee-food. Discover great local restaurants and get your favourites delivered."
+    />
+    <title>neee-food — good food, good mood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="neee-food home">
+        <span class="brand-mark" aria-hidden="true">n<span>!</span></span>
+        <span>neee<span class="brand-accent">-food</span></span>
+      </a>
+
+      <button class="location-button" id="location-button" type="button">
+        <span class="location-pin" aria-hidden="true">⌖</span>
+        <span class="location-copy"><small>Delivering to</small><strong>Dehradun, India</strong></span>
+        <span class="chevron" aria-hidden="true">⌄</span>
+      </button>
+
+      <label class="header-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Search dishes or restaurants" autocomplete="off" />
+        <kbd>⌘ K</kbd>
+      </label>
+
+      <div class="header-actions">
+        <button class="icon-button account-button" id="login-button" type="button">
+          <span class="user-icon" aria-hidden="true">♙</span>
+          <span>Sign in</span>
+        </button>
+        <button class="cart-button" id="open-cart" type="button" aria-label="Open shopping bag">
+          <span aria-hidden="true">♧</span>
+          <span class="cart-label">Your bag</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> A little joy, delivered</div>
+          <h1>Good food.<br /><span>Good mood.</span></h1>
+          <p>Find your new favourite, right around the corner.</p>
+          <a class="hero-link" href="#restaurants">Explore restaurants <span aria-hidden="true">↘</span></a>
+          <a class="hero-design-link" href="#system-designs">Explore all 3 system designs ↓</a>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true"><i>😊</i><i>😋</i><i>🥰</i></div>
+            <span><strong>4.9/5</strong> from hungry people nearby</span>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="A table of delicious food">
+          <div class="hero-image"></div>
+          <div class="hero-sticker"><span>made with</span><strong>♡</strong><span>for you</span></div>
+          <div class="hero-note"><span class="note-icon">✦</span><span><strong>Fresh picks</strong><small>picked just for you</small></span></div>
+        </div>
+        <div class="hero-scribble" aria-hidden="true">yum!</div>
+      </section>
+
+      <section class="offer-strip" aria-label="Current offer">
+        <div class="offer-icon" aria-hidden="true">✷</div>
+        <div><strong>A tasty little welcome</strong><span>Get 20% off your first order over ₹299</span></div>
+        <span class="offer-code">USE <strong>FIRSTBITE</strong></span>
+        <span class="offer-sparkle" aria-hidden="true">✳</span>
+      </section>
+
+      <section class="section category-section" aria-labelledby="category-title">
+        <div class="section-heading">
+          <div><span class="section-kicker">WHAT ARE YOU CRAVING?</span><h2 id="category-title">Pick your mood</h2></div>
+          <span class="muted-note">A good day starts with a good bite ✨</span>
+        </div>
+        <div class="category-list" id="category-list" role="group" aria-label="Filter by cuisine">
+          <button class="category-chip active" type="button" data-category="All"><span>🍽️</span> Everything</button>
+          <button class="category-chip" type="button" data-category="Indian"><span>🍛</span> Indian</button>
+          <button class="category-chip" type="button" data-category="Pizza"><span>🍕</span> Pizza</button>
+          <button class="category-chip" type="button" data-category="Asian"><span>🍜</span> Asian</button>
+          <button class="category-chip" type="button" data-category="Burgers"><span>🍔</span> Burgers</button>
+          <button class="category-chip" type="button" data-category="Desserts"><span>🍰</span> Sweet things</button>
+        </div>
+      </section>
+
+      <section class="section restaurants-section" id="restaurants" aria-labelledby="restaurants-title">
+        <div class="section-heading restaurant-heading">
+          <div><span class="section-kicker">CLOSE BY, MADE WITH LOVE</span><h2 id="restaurants-title">The neighbourhood faves</h2></div>
+          <button class="text-button" id="clear-filters" type="button">See all <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="restaurant-grid" id="restaurant-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>No bites found just yet. Try another search or mood.</p>
+      </section>
+
+      <section class="section systems-section" id="system-designs" aria-labelledby="systems-title">
+        <div class="section-heading systems-heading">
+          <div><span class="section-kicker">TCS-504 · ASSIGNMENT 2</span><h2 id="systems-title">Three systems, one little lab</h2></div>
+          <span class="muted-note">Explore the HLD and try each interactive demo.</span>
+        </div>
+        <nav class="system-nav" aria-label="Assignment system designs">
+          <a href="#food-design">01 · Food delivery</a>
+          <a href="#notification-design">02 · Notifications</a>
+          <a href="#shortener-design">03 · URL shortener</a>
+        </nav>
+
+        <article class="design-card" id="food-design">
+          <div class="design-card-heading"><div><span class="design-number">01</span><div><span class="section-kicker">QUESTION 1</span><h3>Food delivery system</h3></div></div><span class="design-caption">Browse, order, pay &amp; follow every bite</span></div>
+          <div class="architecture-flow" aria-label="Food delivery system architecture">
+            <div class="architecture-node"><span>👤</span><strong>Customer app</strong><small>Sign up · browse · order</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🚪</span><strong>API gateway</strong><small>Auth · routing · rate limits</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🧩</span><strong>Core services</strong><small>Users · restaurants · menus</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🧾</span><strong>Order service</strong><small>Cart · order · status</small></div>
+          </div>
+          <div class="architecture-branches"><span>Order events</span><i aria-hidden="true">↙</i><i aria-hidden="true">↓</i><i aria-hidden="true">↘</i></div>
+          <div class="architecture-flow architecture-flow-secondary">
+            <div class="architecture-node"><span>💳</span><strong>Payment service</strong><small>UPI / card gateway · refunds</small></div>
+            <div class="architecture-node"><span>🍳</span><strong>Restaurant app</strong><small>Accept · prepare · ready</small></div>
+            <div class="architecture-node"><span>🛵</span><strong>Delivery service</strong><small>Assign rider · live location</small></div>
+            <div class="architecture-node"><span>🗄️</span><strong>Data stores</strong><small>Users · menus · orders · payments</small></div>
+          </div>
+          <div class="design-notes"><span><strong>Scale:</strong> cache popular menus; partition orders by region and ID.</span><span><strong>Reliability:</strong> idempotent checkout, payment webhooks, event queue &amp; retries.</span><span><strong>Tracking:</strong> order events update customers and the delivery map in near real time.</span></div>
+          <p class="demo-disclaimer">Checkout is a UI simulation. No real payment is collected; production payments require a secure server and payment-gateway integration.</p>
+        </article>
+
+        <article class="design-card" id="notification-design">
+          <div class="design-card-heading"><div><span class="design-number">02</span><div><span class="section-kicker">QUESTION 2</span><h3>Notification system</h3></div></div><span class="design-caption">Preferences, multi-channel delivery &amp; retry history</span></div>
+          <div class="architecture-flow" aria-label="Notification system architecture">
+            <div class="architecture-node"><span>📱</span><strong>App / API</strong><small>Register · set preferences</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🔔</span><strong>Notification API</strong><small>Validate · authorize</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>📬</span><strong>Queue &amp; workers</strong><small>Prioritize · retry · backoff</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>✉️</span><strong>Channel adapters</strong><small>Email · SMS · push</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🗃️</span><strong>History store</strong><small>Status · attempts · timestamps</small></div>
+          </div>
+          <div class="design-notes"><span><strong>Types:</strong> order updates, alerts and reminders use templates and priorities.</span><span><strong>Preferences:</strong> filter by user, channel and notification type before enqueueing.</span><span><strong>Failures:</strong> exponential backoff, bounded attempts, dead-letter queue and delivery receipts.</span></div>
+          <div class="demo-panel">
+            <div class="demo-panel-heading"><div><span class="section-kicker">TRY IT</span><h4>Notification playground</h4></div><span class="demo-badge">SIMULATED DELIVERY</span></div>
+            <form id="notification-form" class="notification-form">
+              <div class="form-grid">
+                <label>Name<input name="name" autocomplete="name" placeholder="Your name" required /></label>
+                <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+                <label>Mobile<input name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit number" required /></label>
+                <label>Notification type<select name="type"><option>Order update</option><option>Alert</option><option>Reminder</option></select></label>
+              </div>
+              <fieldset class="preference-set"><legend>Channels &amp; preferences</legend>
+                <label><input type="checkbox" name="channel" value="Email" checked /> ✉️ Email</label>
+                <label><input type="checkbox" name="channel" value="SMS" checked /> 💬 SMS</label>
+                <label><input type="checkbox" name="channel" value="Push" checked /> 📲 Push</label>
+              </fieldset>
+              <label class="message-label">Message<input name="message" maxlength="160" placeholder="Your order is out for delivery!" required /></label>
+              <label class="failure-toggle"><input type="checkbox" name="simulateFailure" /> Simulate a temporary delivery failure (then retry)</label>
+              <button class="button button-primary" type="submit">Register &amp; send notification <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="notification-history">
+              <div class="history-heading"><h4>Notification history</h4><button class="text-button" id="clear-notifications" type="button">Clear history</button></div>
+              <div id="notification-history-list" class="history-list"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="design-card" id="shortener-design">
+          <div class="design-card-heading"><div><span class="design-number">03</span><div><span class="section-kicker">QUESTION 3</span><h3>URL shortener</h3></div></div><span class="design-caption">Create a short link, redirect &amp; count clicks</span></div>
+          <div class="architecture-flow" aria-label="URL shortener system architecture">
+            <div class="architecture-node"><span>🧑‍💻</span><strong>Client</strong><small>Submit long URL</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🔐</span><strong>Shorten API</strong><small>Validate · generate key</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>🗄️</span><strong>Key-value store</strong><small>short code → long URL</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+            <div class="architecture-node"><span>↗️</span><strong>Redirect service</strong><small>Lookup · HTTP redirect</small></div>
+          </div>
+          <div class="design-notes"><span><strong>Unique keys:</strong> random Base62 codes checked for collisions; retry generation if occupied.</span><span><strong>Fast redirects:</strong> cache hot codes; return HTTP 302 after validating the destination.</span><span><strong>Analytics:</strong> append click events to a queue and aggregate counts asynchronously.</span></div>
+          <div class="demo-panel">
+            <div class="demo-panel-heading"><div><span class="section-kicker">TRY IT</span><h4>Make a tiny link</h4></div><span class="demo-badge">SAVED IN THIS BROWSER</span></div>
+            <form id="shortener-form" class="shortener-form">
+              <label for="long-url">Paste a long URL</label>
+              <div class="shortener-input-row"><input id="long-url" name="url" type="url" placeholder="https://example.com/a/really/long/page" required /><button class="button button-primary" type="submit">Shorten it <span aria-hidden="true">↗</span></button></div>
+              <p class="helper-text">Short links redirect to your original URL when opened. This demo stores links and click counts in local browser storage.</p>
+            </form>
+            <div class="shortener-results" id="shortener-results"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="bottom-banner">
+        <div class="banner-doodle" aria-hidden="true">✿</div>
+        <div><span class="section-kicker">GOOD FOOD, GOOD NEIGHBOURHOOD</span><h2>Your next favourite is just around the corner.</h2></div>
+        <a href="#restaurants" class="button button-dark">Find your bite <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">n<span>!</span></span><span>neee<span class="brand-accent">-food</span></span></a>
+      <span>Good food, delivered with a little extra love. <span aria-hidden="true">♡</span></span>
+      <span><a href="https://unsplash.com" target="_blank" rel="noreferrer">Food photos via Unsplash</a> · © 2026 neee-food</span>
+    </footer>
+
+    <div class="overlay" id="overlay" hidden>
+      <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+        <div class="drawer-header"><div><span class="section-kicker">YOUR LITTLE FEAST</span><h2 id="cart-title">Your bag <span id="bag-item-count"></span></h2></div><button class="close-button" data-close aria-label="Close bag">×</button></div>
+        <div class="cart-content" id="cart-content"></div>
+        <div class="cart-footer" id="cart-footer"></div>
+      </aside>
+      <section class="modal" id="restaurant-modal" role="dialog" aria-modal="true" aria-labelledby="restaurant-modal-title" hidden></section>
+      <section class="modal compact-modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title" hidden>
+        <button class="close-button modal-close" data-close aria-label="Close sign in">×</button>
+        <div class="modal-emoji">👋</div><span class="section-kicker">NICE TO MEET YOU</span><h2 id="login-title">Come on in</h2>
+        <p class="modal-intro">Create your demo account or log back in with your name and mobile number.</p>
+        <form id="login-form" class="form-stack">
+          <label for="account-name">Your name</label>
+          <input id="account-name" name="name" type="text" autocomplete="name" placeholder="How should we call you?" required />
+          <label for="phone-input">Phone number</label>
+          <div class="phone-input"><span>🇮🇳 +91</span><input id="phone-input" name="phone" type="tel" inputmode="numeric" placeholder="10-digit mobile number" pattern="[0-9]{10}" required /></div>
+          <button class="button button-primary full-button" type="submit">Save demo account <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="form-footnote">Demo only: account details stay in this browser; no real authentication is performed.</p>
+      </section>
+      <section class="modal compact-modal" id="track-modal" role="dialog" aria-modal="true" aria-labelledby="track-title" hidden>
+        <button class="close-button modal-close" data-close aria-label="Close order tracker">×</button>
+        <div class="modal-emoji">🛵</div><span class="section-kicker">YOUR ORDER IS ON ITS WAY</span><h2 id="track-title">Coming right up!</h2>
+        <p class="modal-intro" id="track-description">Your order is being prepared with love.</p>
+        <div class="track-steps"><div class="track-step complete"><span>✓</span><div><strong>Order confirmed</strong><small>We got your order</small></div></div><div class="track-step current"><span>✦</span><div><strong>In the kitchen</strong><small>Your food is being made fresh</small></div></div><div class="track-step"><span>3</span><div><strong>On its way</strong><small>A little joy is heading to you</small></div></div></div>
+        <button class="button button-dark full-button" data-close type="button">Sounds delicious <span aria-hidden="true">♡</span></button>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
