@@ -6,7 +6,8 @@ The restaurant menu is vegetarian, and the food photography shows vegetarian dis
 
 ## Run locally
 
-Open `index.html` in a browser. The site uses local JavaScript, CSS, and food photos in `assets/food/`.
+i am sorry for inconvinience that i haven't deployed it .
+to use this Open `index.html` in a browser. The site uses local JavaScript, CSS, and food photos in `assets/food/`.
 
 ## What's included
 
